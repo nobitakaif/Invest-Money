@@ -1,5 +1,5 @@
 "use client"
-import { ConnectButton, useActiveAccount } from "thirdweb/react"
+import { ConnectButton, lightTheme, useActiveAccount } from "thirdweb/react"
 import { client } from "../client"
 import Link from "next/link"
 
@@ -13,13 +13,14 @@ export default function Navbar(){
             </div>
             <div className="flex justify-center items-center">
                 <div className=" rounded-2xl w-56">
-                    <ConnectButton client={client} />
+                    <ConnectButton client={client} theme={lightTheme()} />
                 </div>
-                {activeAccount ? <div className="bg-black w-28 h-10 rounded-2xl p-2 text-gray-300 text-center">
+                {activeAccount &&<div className="bg-black w-28 h-10 rounded-2xl p-2 text-gray-300 text-center">
                     <Link href={`/dashboard/${activeAccount?.address}`}>
                         <span className="">Dashboard</span>
                     </Link>
-                </div> : ""}
+                </div>}
+
             </div>
         </div>
         
