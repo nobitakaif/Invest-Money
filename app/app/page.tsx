@@ -15,7 +15,7 @@ export default function Home() {
 
   const {data : campaigns, isLoading} = useReadContract({
     contract : contract,
-    method : "function fund() view returns ((address campaignAddress, address owner, string name, uint256 creationTime)[)",
+    method : "function getAllCampaings() view returns((address campaignAddress, address owner, string name, uint256 creationTime)[])",
     params : []
   })
 
